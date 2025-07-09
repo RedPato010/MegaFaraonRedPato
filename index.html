@@ -4,62 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Red Pato | Mega Faraón</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: url('https://i.imgur.com/rWyGR2q.jpg') no-repeat center center fixed;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bebas Neue', cursive;
+      color: #fff;
+      background: url('https://i.imgur.com/ZAV0o4P.jpg') no-repeat center center fixed;
       background-size: cover;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      min-height: 100vh;
+      align-items: center;
+      text-align: center;
     }
+
     .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 50px 30px;
+      border: 4px solid gold;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
     }
+
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.2em;
+      font-size: 3.5em;
+      color: gold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #000;
     }
+
     h2 {
-      font-size: 1.5em;
-      margin-bottom: 1em;
+      font-size: 2em;
+      color: #ff3333;
+      margin-bottom: 15px;
     }
+
     p {
-      font-size: 1.2em;
+      font-size: 1.4em;
+      margin: 10px 0;
     }
+
     .btn {
       display: inline-block;
       margin-top: 30px;
-      padding: 15px 30px;
-      background-color: #25D366;
+      padding: 18px 35px;
+      background: linear-gradient(45deg, #25D366, #128C7E);
       color: white;
-      font-size: 1.2em;
+      font-size: 1.4em;
+      border: none;
+      border-radius: 50px;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      box-shadow: 0 0 15px #25D366;
+      animation: pulse 1.5s infinite;
     }
+
     .btn:hover {
-      background-color: #1ebf59;
+      background: linear-gradient(45deg, #1ebf59, #0e6f5f);
     }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 15px #25D366; }
+      50% { transform: scale(1.05); box-shadow: 0 0 25px #25D366; }
+      100% { transform: scale(1); box-shadow: 0 0 15px #25D366; }
+    }
+
     @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      h2 { font-size: 1.2em; }
+      h1 { font-size: 2.5em; }
+      h2 { font-size: 1.5em; }
+      p { font-size: 1.1em; }
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <h1>Red Pato</h1>
-    <h2>Casino Mega Faraón</h2>
-    <p><strong>🎁 Bono del 30% para nuevos usuarios</strong></p>
-    <p>¡Empezá a jugar y ganá hoy!</p>
-    <a class="btn" href="https://wa.me/5493564225100" target="_blank">👉 Ir a WhatsApp</a>
+    <h1>🎰 Red Pato</h1>
+    <h2>🔥 Mega Faraón Casino 🔥</h2>
+    <p>🎁 <strong>¡30% extra en tu primer carga!</strong></p>
+    <p>📱 Jugá desde tu celular y ganá en minutos</p>
+    <a class="btn" href="https://wa.me/5493564225100" target="_blank">👉 ¡Entrar por WhatsApp!</a>
   </div>
 </body>
 </html>
