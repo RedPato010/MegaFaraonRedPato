@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casino Mega Faraón</title>
+  <title>Casino RedPato</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -27,24 +27,32 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: url('https://i.imgur.com/KxAksCq.jpg') no-repeat center center fixed;
+      background: url('Logo 2.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8); /* oscurece el fondo */
+      z-index: 0;
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 40px 20px;
-      border-radius: 15px;
+      position: relative;
+      z-index: 1;
       max-width: 400px;
-      width: 100%;
-      box-shadow: 0 0 20px rgba(255,0,0,0.4);
+      margin: auto;
+      margin-top: 10vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      color: #fff;
       animation: fadeIn 1s ease;
     }
 
@@ -99,14 +107,14 @@
       margin-top: 10px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .whatsapp-icon {
       margin-right: 10px;
       font-size: 22px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 500px) {
@@ -117,26 +125,24 @@
 </head>
 <body>
   <div class="container">
-    
     <!-- Paso 1 -->
     <div id="step1" class="step active">
-      <h1>🎰 ¿Querés activar tu bono exclusivo del 30%?</h1>
+      <h1>🦆 ¿Querés activar tu bono exclusivo con RedPato?</h1>
       <button class="btn btn-green" onclick="mostrarPaso2()">✅ Sí, quiero mi bono</button>
       <p class="small">Solo para mayores de 18 años</p>
     </div>
 
     <!-- Paso 2 -->
     <div id="step2" class="step">
-      <h1>🎁 ¡Perfecto! Te conectamos con un asesor ahora.</h1>
+      <h1>🎁 ¡Perfecto! Te conectamos por WhatsApp.</h1>
       <a class="btn btn-red" 
-         href="https://wa.me/5493564225100?text=Hola,%20quiero%20activar%20el%20bono%20de%20bienvenida%20del%20casino."
+         href="https://wa.me/5493564225100?text=Hola,%20quiero%20activar%20el%20bono%20de%20bienvenida%20de%20RedPato."
          target="_blank"
          onclick="fbq('trackCustom', 'ClickWhatsApp')">
          <i class="fab fa-whatsapp whatsapp-icon"></i>¡Solicitar mi bono ahora!
       </a>
       <p class="small">Atención inmediata por WhatsApp 📱</p>
     </div>
-
   </div>
 
   <script>
