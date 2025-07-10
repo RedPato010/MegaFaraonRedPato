@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casino RedPato</title>
+  <title>RedPato Bonos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -27,33 +27,23 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: url('Logo 2.jpg') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-      min-height: 100vh;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.8); /* oscurece el fondo */
-      z-index: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 400px;
-      margin: auto;
-      margin-top: 10vh;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.9);
       padding: 40px 25px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-      color: #fff;
-      animation: fadeIn 1s ease;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
     }
 
     h1 {
@@ -107,6 +97,28 @@
       margin-top: 10px;
     }
 
+    .contador {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ff4444;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    .verificacion {
+      background-color: #111;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .verificacion i {
+      color: #00c851;
+      margin-right: 8px;
+    }
+
     .whatsapp-icon {
       margin-right: 10px;
       font-size: 22px;
@@ -117,6 +129,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes pulse {
+      0% { text-shadow: 0 0 5px #ff4444; }
+      50% { text-shadow: 0 0 15px #ff4444; }
+      100% { text-shadow: 0 0 5px #ff4444; }
+    }
+
     @media (max-width: 500px) {
       h1 { font-size: 22px; }
       .btn { font-size: 16px; }
@@ -125,24 +143,34 @@
 </head>
 <body>
   <div class="container">
+
     <!-- Paso 1 -->
     <div id="step1" class="step active">
       <h1>🦆 ¿Querés activar tu bono exclusivo con RedPato?</h1>
+
+      <div class="verificacion">
+        <p><i class="fas fa-shield-alt"></i> Plataforma verificada</p>
+        <p><i class="fab fa-whatsapp"></i> Atención oficial por WhatsApp</p>
+      </div>
+
       <button class="btn btn-green" onclick="mostrarPaso2()">✅ Sí, quiero mi bono</button>
       <p class="small">Solo para mayores de 18 años</p>
+
+      <div class="contador">Usuarios conectados: <span id="contador">--</span></div>
     </div>
 
     <!-- Paso 2 -->
     <div id="step2" class="step">
       <h1>🎁 ¡Perfecto! Te conectamos por WhatsApp.</h1>
       <a class="btn btn-red" 
-         href="https://wa.me/5493564225100?text=Hola,%20quiero%20activar%20el%20bono%20de%20bienvenida%20de%20RedPato."
+         href="https://wa.me/5493564225100?text=👋%20Hola,%20quiero%20un%20usuario%20para%20acceder%20al%20🎁%20bono%20del%2030%%.%20¿Me%20ayudás?"
          target="_blank"
          onclick="fbq('trackCustom', 'ClickWhatsApp')">
          <i class="fab fa-whatsapp whatsapp-icon"></i>¡Solicitar mi bono ahora!
       </a>
       <p class="small">Atención inmediata por WhatsApp 📱</p>
     </div>
+
   </div>
 
   <script>
@@ -150,6 +178,22 @@
       document.getElementById('step1').classList.remove('active');
       document.getElementById('step2').classList.add('active');
     }
+
+    // Simulación de contador de usuarios
+    let usuarios = Math.floor(Math.random() * 60) + 120; // entre 120 y 180
+    const contador = document.getElementById('contador');
+    contador.innerText = usuarios;
+
+    function aumentarUsuarios() {
+      const aumento = Math.floor(Math.random() * 3) + 1; // entre 1 y 3
+      usuarios += aumento;
+      contador.innerText = usuarios;
+
+      const tiempo = Math.floor(Math.random() * 3000) + 3000; // cada 3 a 6 segundos
+      setTimeout(aumentarUsuarios, tiempo);
+    }
+
+    setTimeout(aumentarUsuarios, 4000);
   </script>
 </body>
 </html>
